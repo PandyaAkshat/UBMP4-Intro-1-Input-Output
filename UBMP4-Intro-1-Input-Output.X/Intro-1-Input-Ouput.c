@@ -53,6 +53,14 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
+         
+          if(SW3 == 0)
+        {
+            LATC = 0b00000000;
+            __delay_ms(100);
+            LATC = 0b11110000;
+            __delay_ms(100);
+        }
 
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
@@ -67,19 +75,30 @@ int main(void)
  * 1. How many times do the LEDs flash if SW2 is quickly pressed and released?
  *    Do the LEDs keep flashing when SW2 is held? Look at the program and
  *    explain why this happens when SW2 is held.
+ Each LED flashes once if SW2 is pressed and released quickly. The LEDS keep flashing in a loop if you hold SW2 and this
+ happens because the code is in a while loop which is a repeating statement so it is constantly checking if SW2 is pressed and
+ if it is then it runs the light pattern each time.
  * 
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
+ The difference is that one states LED3 turns off (0) or LED turns on (1) in binary language.
  * 
  * 3. What voltage do you expect the microcontroller to output to LED D3 when
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
+
+    I predict the statement LED3 = 0; would make it so NO voltage would output to LED D3 and LED3 = 1; would make it so 5 volts 
+    would be outputed
+
  * 
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
+      
  * 
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
+     
+     The double equal sign is used for a condtional check and the single equal sign is used to actually assign the value to a variable
  * 
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
