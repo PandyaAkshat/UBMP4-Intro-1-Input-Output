@@ -35,7 +35,7 @@ int main(void)
         if(SW2 == 0)
         {
             LED3 = 1;
-            __delay_ms(100);
+            __delay_ms(10000);
             LED4 = 1;
             __delay_ms(100);
             LED5 = 1;
@@ -53,13 +53,15 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-         
-          if(SW3 == 0)
+         // Momentary button using if structure
+        // Conditional 'AND' code
+        if(SW3 == 0 || SW4 == 0)
         {
-            LATC = 0b00000000;
-            __delay_ms(100);
-            LATC = 0b11110000;
-            __delay_ms(100);
+            LED4 = 1;
+        }
+        else
+        {
+            LED4 = 0;
         }
 
         // Activate bootloader if SW1 is pressed.
@@ -98,7 +100,7 @@ int main(void)
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
      
-     The double equal sign is used for a condtional check and the single equal sign is used to actually assign the value to a variable
+     The double equal sign is a conditional operator and the single equal sign is a assignment operator
  * 
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
@@ -115,6 +117,9 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
+           
+     When SW3 is pushed, LED's turn on and stay on. One advantage of using 'LATC' is that it uses less lines of code. One disadvantage
+     is that when we use 'LATC' we are using the pins the LED's are connected to so in the process we don't know what else we are messing with.
  * 
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
@@ -140,10 +145,14 @@ int main(void)
  * 
  *    Next, press and hold SW3 while pressing and releasing SW4. Does it work
  *    as expected?
+    Yes, SW3 and SW4 are both momentary buttons that only stay on while the button is actually pressed.
  * 
  *    Next, try press and holding SW4 while pressing and releasing SW3. Does it
  *    work as expected? Explain the difference in operation between the 'if' and
  *    'while' structures making up the momentary button code.
+
+ No, when SW4 is pressed and held SW3 does not turn on when you press it. The 'if' is checked once and does something once
+ whereas the 'while' is being check constantly, so it constantly checks SW4 whereas 'if' checks SW3 once.
  * 
  * 7. Let's explore logical conditions using 'if' statements. Replace the code
  *    added in 6, above, with this nested if code to make a logical AND
@@ -168,6 +177,8 @@ int main(void)
 
  *    Test the code to ensure it works as expected. Does the order of the if
  *    conditions matter? (eg. swap the conditional checks for SW3 and SW4)
+
+      The order doesn't matter, it works as intended.
  * 
  * 8. Next, replace the code from 7 with the following code which implements a
  *    logical AND conditional operator composed of two ampersands '&&':
@@ -185,6 +196,9 @@ int main(void)
  *    Does '&&' work the same way as the nested if structures? Can you think of
  *    at least one advantage of using a logical conditional operator instead of
  *    nested if structures?
+
+      It does work the same way as the nested if stucture. One advantage is that a logical condtional operator uses less
+      lines of code compared to the nested if structure, so it is faster.
  * 
  * 9. Replace the double ampersand '&&' with double vertical bars '||)' to make
  *    a logical OR conditional operator. Your code should look like this:
@@ -201,15 +215,20 @@ int main(void)
 
  *    Describe the conditions under which LED4 turns on.
  * 
+     LED4 turns on if SW3 is pressed/held or if SW4 is pressed/held, or if both are pressed and held.
  * 
  * Programming Activities
  * 
  * 1. The statement '__delay_ms(100);' creates a 100ms delay. Try changing one
  *    or more of the delay values in the program to 500ms and see what happens.
+      
+      It creates a huge delay in which ever of the LED's delays you changed
  * 
  *    Can the delay be made even longer? Try 1000 ms. How big can the delay be
  *    before MPLAB-X produces an error message? (Hint: can you think of a fast
  *    and efficient way of guessing an unknown number?)
+
+     The delay can be 1000 ms but cannot exceed 10000 ms.
  * 
  * 2. The '__delay_ms();' function only accepts integers as delay values. To
  *    make delays shorter than 1ms, specify a delay in microseconds using the
