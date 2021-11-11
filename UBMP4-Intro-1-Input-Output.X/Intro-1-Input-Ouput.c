@@ -35,7 +35,7 @@ int main(void)
         if(SW2 == 0)
         {
             LED3 = 1;
-            __delay_ms(10000);
+            __delay_ms(100);
             LED4 = 1;
             __delay_ms(100);
             LED5 = 1;
@@ -62,6 +62,13 @@ int main(void)
         else
         {
             LED4 = 0;
+        }
+
+         // Make a tone while SW5 is held
+        if(SW5 == 0)
+        {
+            BEEPER = !BEEPER;
+            __delay_us(567);
         }
 
         // Activate bootloader if SW1 is pressed.
@@ -248,6 +255,8 @@ int main(void)
  *    Try changing the delay values in both of the __delay_us(); functions.
  *    Does the pitch of the tone increase or decrease if the delay value is
  *    made smaller?
+
+      A smaller delay value makes the pitch of the tone higher.
  * 
  * 3. This code demonstrates a more compact way of toggling the beeper output
  *    using a logical NOT operator '!'. Replace the code above, with this code:
@@ -264,6 +273,8 @@ int main(void)
  *    be in after this code runs? While one advantage of this method is smaller
  *    code, can you think of one or more disadvantages based on its output when
  *    the button is released?
+
+      
  * 
  * 4. Using modified versions of the original SW2 'if' structure, create a
  *    program that makes a unique LED flashing pattern for each pushbutton.
