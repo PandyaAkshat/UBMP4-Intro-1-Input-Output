@@ -53,105 +53,15 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-         // If SW3 is pressed, make a flashy light pattern
+        //Stop and start buttons.
         if(SW3 == 0)
         {
             LED4 = 1;
-            __delay_ms(100);
-            LED6 = 1;
-            __delay_ms(100);
-            LED5 = 1;
-            __delay_ms(100);
-            LED3 = 1;
-            __delay_ms(100);
-            LED4 = 0;
-            __delay_ms(100);
-            LED6 = 0;
-            __delay_ms(100);
-            LED5 = 0;
-            __delay_ms(100);
-            LED3 = 0;
-            __delay_ms(100);
         }
-
-         // If SW5 is pressed, make a flashy light pattern
-        if(SW5 == 0)
+        if(SW4 == 0)
         {
-            LED6 = 1;
-            __delay_ms(100);
-            LED3 = 1;
-            __delay_ms(100);
-            LED6 = 0;
-            __delay_ms(100);
-            LED3 = 0;
-            __delay_ms(100);
-            LED5 = 1;
-            __delay_ms(100);
-            LED4 = 1;
-            __delay_ms(100);
-            LED5 = 0;
-            __delay_ms(100);
             LED4 = 0;
-            __delay_ms(100);
-            LED5 = 1;
-            __delay_ms(100);
-            LED6 = 1;
-            __delay_ms(100);
-            LED5 = 0;
-            __delay_ms(100);
-            LED6 = 0;
-            __delay_ms(100);
-            LED4 = 1;
-            __delay_ms(100);
-            LED3 = 1;
-            __delay_ms(100);
-            LED4 = 0;
-            __delay_ms(100);
-            LED3 = 0;
-            __delay_ms(100);
         }
-
-        // If SW4 is pressed, make a flashy light pattern
-       if(SW4 == 0)
-       { 
-            LED4 = 1;
-            __delay_ms(100);
-            LED4 = 0;
-            __delay_ms(100);
-            LED5 = 1;
-            __delay_ms(100);
-            LED5 = 0;
-            __delay_ms(100);
-            LED3 = 1;
-            __delay_ms(100);
-            LED3 = 0;
-            __delay_ms(100);
-            LED6 = 1;
-            __delay_ms(100);
-            LED6 = 0;
-            __delay_ms(100);
-            LED4 = 1;
-            LED5 = 1;
-            LED3 = 1;
-            LED6 = 1;
-            __delay_ms(100);
-            LED4 = 0;
-            LED5 = 0;
-            LED3 = 0;
-            LED6 = 0;
-            __delay_ms(100);
-              LED4 = 1;
-            LED5 = 1;
-            LED3 = 1;
-            LED6 = 1;
-            __delay_ms(100);
-            LED4 = 0;
-            LED5 = 0;
-            LED3 = 0;
-            LED6 = 0;
-            __delay_ms(100);
-       }
-
        
      
         // Activate bootloader if SW1 is pressed.
@@ -373,6 +283,9 @@ int main(void)
  *    Test each tone by pressing each button individually. Next, press two or
  *    more buttons at the same time. Describe what the tone waveform would look
  *    like when more than one button is held.
+
+      It would look like a constant line. when more than one button is pressed the beeper creates one constant sound that only changes
+      when you let go of one of the buttons.
  * 
  * 6. Use individual 'if' structures to simulate 'Start' and 'Stop' buttons for
  *    an industrial machine. LED D4 should turn on when SW3 is pressed, stay on
@@ -384,6 +297,9 @@ int main(void)
  *    of LED D4 compare between its normal on state following SW3 being pressed
  *    to this new state when both SW3 and SW4 are bing held? Can you explain
  *    why it changes?
+
+      The light gets noticeably dimmer when you press both switches at the same time. It changes because when you press both at the same time 
+      it starts to turn it on and turn it off very quickly before the LED can turn on fully.
  * 
  * 8. As you can imagine, an industrial machine that is able to turn on even
  *    while its 'Stop' button is pressed represents a significant safety hazard.
