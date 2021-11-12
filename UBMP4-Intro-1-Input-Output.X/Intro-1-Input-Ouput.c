@@ -53,24 +53,107 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-         // Momentary button using if structure
-        // Conditional 'AND' code
-        if(SW3 == 0 || SW4 == 0)
+         // If SW3 is pressed, make a flashy light pattern
+        if(SW3 == 0)
         {
             LED4 = 1;
-        }
-        else
-        {
+            __delay_ms(100);
+            LED6 = 1;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
             LED4 = 0;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
         }
 
-         // Make a tone while SW5 is held
+         // If SW5 is pressed, make a flashy light pattern
         if(SW5 == 0)
         {
-            BEEPER = !BEEPER;
-            __delay_us(567);
+            LED6 = 1;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED4 = 1;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED6 = 1;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED4 = 1;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
         }
 
+        // If SW4 is pressed, make a flashy light pattern
+       if(SW4 == 0)
+       { 
+            LED4 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
+            LED6 = 1;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED4 = 1;
+            LED5 = 1;
+            LED3 = 1;
+            LED6 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            LED5 = 0;
+            LED3 = 0;
+            LED6 = 0;
+            __delay_ms(100);
+              LED4 = 1;
+            LED5 = 1;
+            LED3 = 1;
+            LED6 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            LED5 = 0;
+            LED3 = 0;
+            LED6 = 0;
+            __delay_ms(100);
+       }
+
+       
+     
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
         {
@@ -126,7 +209,7 @@ int main(void)
  *    rather than through individual 'LEDn = x;' statements.
            
      When SW3 is pushed, LED's turn on and stay on. One advantage of using 'LATC' is that it uses less lines of code. One disadvantage
-     is that when we use 'LATC' we are using the pins the LED's are connected to so in the process we don't know what else we are messing with.
+     is that when we use 'LATC' we dont know what is using the pins the LED's are connected to so in the process we don't know what else we are messing with.
  * 
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
@@ -274,7 +357,7 @@ int main(void)
  *    code, can you think of one or more disadvantages based on its output when
  *    the button is released?
 
-      
+      The beeper pin will be 1. One disadvantage of this method could be that when the output is left as one, the code is checking for if SW5 is 0. 
  * 
  * 4. Using modified versions of the original SW2 'if' structure, create a
  *    program that makes a unique LED flashing pattern for each pushbutton.
@@ -283,6 +366,8 @@ int main(void)
  *    one button is held. Do all of the patterns try to flash the LEDs at the
  *    same time, or sequentially? Explain why this is.
  * 
+       The patterns happen sequentially and not all at the same time. I think this happens because the program does your commands
+       in whatever order you wrote them, if pattern 1 comes before pattern two in the code then it will do pattern 1 first like it was told to do.
  * 5. Create a program that makes a different tone for each pushbutton.
  * 
  *    Test each tone by pressing each button individually. Next, press two or
