@@ -53,8 +53,9 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
+        
         //Stop and start buttons.
-        if(SW3 == 0)
+        if(SW3 == 0 && SW4 == 1)
         {
             LED4 = 1;
         }
@@ -62,7 +63,23 @@ int main(void)
         {
             LED4 = 0;
         }
-       
+
+        //LED 1 flashing
+        if(SW5 == 0)
+        {
+            LED1 = 0;
+            __delay_ms(107);
+            LED1 = 1;
+            __delay_ms(107);
+            LED1 = 0;
+            __delay_ms(107);
+            LED1 = 1;
+            __delay_ms(107);
+            LED1 = 0;
+            __delay_ms(107);
+            LED1 = 1;
+            __delay_ms(107);
+        }       
      
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
