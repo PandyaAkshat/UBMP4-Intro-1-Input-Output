@@ -53,7 +53,105 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-        
+        // If SW3 is pressed, make a flashy light pattern
+        if(SW3 == 0)
+        {
+            LED4 = 1;
+            __delay_ms(100);
+            LED6 = 1;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
+        }
+
+         // If SW5 is pressed, make a flashy light pattern
+        if(SW5 == 0)
+        {
+            LED6 = 1;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED4 = 1;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED6 = 1;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED4 = 1;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
+        }
+
+        // If SW4 is pressed, make a flashy light pattern
+       if(SW4 == 0)
+       { 
+            LED4 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            __delay_ms(100);
+            LED5 = 1;
+            __delay_ms(100);
+            LED5 = 0;
+            __delay_ms(100);
+            LED3 = 1;
+            __delay_ms(100);
+            LED3 = 0;
+            __delay_ms(100);
+            LED6 = 1;
+            __delay_ms(100);
+            LED6 = 0;
+            __delay_ms(100);
+            LED4 = 1;
+            LED5 = 1;
+            LED3 = 1;
+            LED6 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            LED5 = 0;
+            LED3 = 0;
+            LED6 = 0;
+            __delay_ms(100);
+              LED4 = 1;
+            LED5 = 1;
+            LED3 = 1;
+            LED6 = 1;
+            __delay_ms(100);
+            LED4 = 0;
+            LED5 = 0;
+            LED3 = 0;
+            LED6 = 0;
+            __delay_ms(100);
+       }
+
         //Stop and start buttons.
         if(SW3 == 0 && SW4 == 1)
         {
